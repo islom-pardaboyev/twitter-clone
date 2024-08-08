@@ -21,7 +21,5 @@ Loyihani kompyuteringizga o'rnatish uchun quyidagi qadamlarni bajaring:
 
 ## Aloqa
 
-## Aloqa
-
 [![Phone](https://img.shields.io/badge/Phone-+998999247787-blue?style=flat-square&logo=phone)](tel:+998999247787)
 [![Telegram](https://img.shields.io/badge/Telegram-Chat-blue?style=flat-square&logo=telegram)](https://t.me/IslomPardaboyev)
