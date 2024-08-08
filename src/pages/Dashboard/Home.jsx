@@ -1,70 +1,28 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import {
   DarkLightModeBtn,
   GifIcon,
-  PostValueImg,
   ScheduleIcon,
   SetImgIcon,
   SmileIcon,
   StatusIcon,
-  UserAvatar1,
-  UserAvatar2,
-  UserAvatar3,
 } from "../../assets/images/Icons";
 import Avatar from "../../assets/images/avatar.svg";
 import Button from "../../components/Button";
 import PostCart from "../../components/PostCart";
 import TrendsForYou from "../../components/TrendsForYou";
+import { Context } from "../../context/context";
 
 function Home() {
+  const date = new Date()
   const [value, setValue] = useState("");
-  const usersPostValues = [
-    {
-      id: 1,
-      name: "Designsta",
-      userName: "@inner · 25m",
-      desc: "Twitterdagi ayol-erkak qarama-qarshiliginglardan o'zinglar zerikmadinglarmi?",
-      userImg: <UserAvatar1 />,
-      postImgUrl: null,
-      commentCount: "10",
-      replyCount: "1",
-      likeCount: "8",
-      shareCount: null,
-      statusticCount: null,
-    },
-    {
-      id: 2,
-      name: "cloutexhibition",
-      userName: "@RajLahoti · 22m",
-      desc: "YPIP dasturining bu yilgi sezoni ham o’z nihoyasiga yetmoqda. Mentorlik davomida talaba va yangi bitiruvchilarni o’sayotganini ko’rib hursand bo’ladi odam.",
-      userImg: <UserAvatar2 />,
-      postImgUrl: null,
-      commentCount: null,
-      replyCount: "5",
-      likeCount: "9",
-      shareCount: null,
-      statusticCount: null,
-    },
-    {
-      id: 3,
-      name: "CreativePhoto",
-      userName: "@cloutexhibition · 1h",
-      desc: "Обетда..... Кечиринглар",
-      userImg: <UserAvatar3 />,
-      postImgUrl: <PostValueImg />,
-      commentCount: "10",
-      replyCount: "1",
-      likeCount: "8",
-      shareCount: null,
-      statusticCount: null,
-    },
-  ];
+  const { usersPost, setUsersPost } = useContext(Context);
+
   const [knowImgChange, setKnowImgChange] = useState(false);
   const showImgRef = useRef();
   function takeChoosenImg(e) {
-    console.log(e);
     showImgRef.current.src = URL.createObjectURL(e.target.files[0]);
-    console.log(showImgRef);
+
     setKnowImgChange(true);
   }
 
@@ -74,6 +32,28 @@ function Home() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
+    if (value) {
+      const newPost = {
+        id: Date.now(),
+        name: JSON.parse(window.localStorage.getItem("token")).login,
+        userName: `@${JSON.parse(window.localStorage.getItem("token")).login} · 21s`,
+        desc: value,
+        userImg: <img src={Avatar} alt="" />,
+        postImgUrl: knowImgChange ? <img src={showImgRef.current.src} alt="" /> : null,
+      };
+      addNewPost(newPost);
+      resetFormAndImg(e);
+    }
+  }
+
+  function addNewPost(newPost) {
+    setUsersPost((prevPosts) => [newPost, ...prevPosts]);
+  }
+
+  function resetFormAndImg(e) {
+    setValue("");
+    setKnowImgChange(false);
+    e.target.reset();
   }
 
   return (
@@ -109,10 +89,10 @@ function Home() {
                 <input onChange={takeChoosenImg} type="file" hidden />
                 <SetImgIcon />
               </label>
-              <GifIcon/>
-              <StatusIcon/>
-              <SmileIcon/>
-              <ScheduleIcon/>
+              <GifIcon />
+              <StatusIcon />
+              <SmileIcon />
+              <ScheduleIcon />
             </div>
           </div>
           <Button
@@ -124,7 +104,7 @@ function Home() {
           />
         </form>
         <div className="flex flex-col">
-          {usersPostValues.map((item) => (
+          {usersPost.map((item) => (
             <PostCart key={item.id} item={item} />
           ))}
         </div>
@@ -134,3 +114,4 @@ function Home() {
   );
 }
 export default Home;
+
