@@ -9,7 +9,8 @@ Ushbu loyiha Twitter'ning asosiy funksiyalarini taqlid qiluvchi bir ilova. Foyda
 1. Yana qo'shimcha dizayn qilindi.
 2. Siz inputga ma'lumot kiritsangiz u post ko'rinishida ekranga chiqadi.
 3. Unga yana inputni tagidagi rasm icon`kasini ustiga bosib rasmni tanlab rasm bilan birgalikda post qo'yishingiz mumkin!
-4. Va hokazo .....
+4. Barcha postlarni o'chirish imkoni bor, uning uchun Barcha postlarni o'ng tomonidagi uchta nuqtaga sichqonchani olib kelganda sizga menu ko'rinadi va o'sha menudan deletemo bosib postlarni o'chirishingiz mumkin!
+5. Va Hokazo...
 
 ## O'rnatish
 
