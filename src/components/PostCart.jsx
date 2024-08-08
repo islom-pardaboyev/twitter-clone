@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   CommentIcon,
   LikeIcon,
@@ -6,8 +7,15 @@ import {
   StatisticIcon,
   MoreBtn,
 } from "../assets/images/Icons";
+import { useContext } from "react";
+import { Context } from "../context/context";
 
 const PostCart = ({ item }) => {
+  const { usersPost, setUsersPost } = useContext(Context);
+  const handleDelete = () => {
+    setUsersPost(usersPost.filter((post) => post.id !== item.id));
+  };
+
   return (
     <div className="flex relative items-start border-b border-gray space-x-[15px] px-[25px] pt-[10px] pb-[21px]">
       {item.userImg}
@@ -18,7 +26,7 @@ const PostCart = ({ item }) => {
             {item.userName}
           </p>
         </div>
-        <p className="font-normal leading-[23.94px] text-[16px] mt-[5px]">
+        <p className="font-normal w-full leading-[23.94px] text-[16px] mt-[5px]">
           {item.desc}
         </p>
         <div className="mt-[15px] mx-auto">{item.postImgUrl}</div>
@@ -45,8 +53,18 @@ const PostCart = ({ item }) => {
           </button>
         </div>
       </div>
-      <button className="absolute top-[21px] right-[25px]">
+      <button className="absolute top-[21px] p-3 right-[25px] group">
         <MoreBtn />
+        <div className="absolute shadow-xl border p-2 -left-10 rounded-md border-sky-500 scale-0 group-hover:scale-100 transition-transform bg-white duration-300">
+          <div>
+            <p
+              onClick={() => handleDelete(item.id)}
+              className="flex items-center gap-3 p-2 rounded-md hover:bg-red-500 hover:text-white duration-300"
+            >
+              <FontAwesomeIcon icon="fa-solid fa-trash" /> Delete
+            </p>
+          </div>
+        </div>
       </button>
     </div>
   );

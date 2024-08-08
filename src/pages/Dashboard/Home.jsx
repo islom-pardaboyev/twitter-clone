@@ -14,47 +14,53 @@ import TrendsForYou from "../../components/TrendsForYou";
 import { Context } from "../../context/context";
 
 function Home() {
-  const date = new Date()
+  const date = new Date();
   const [value, setValue] = useState("");
   const { usersPost, setUsersPost } = useContext(Context);
-
   const [knowImgChange, setKnowImgChange] = useState(false);
-  const showImgRef = useRef();
-  function takeChoosenImg(e) {
-    showImgRef.current.src = URL.createObjectURL(e.target.files[0]);
+  const showImgRef = useRef(null);
 
-    setKnowImgChange(true);
-  }
-
-  function disbaledBtn(e) {
-    setValue(e.target.value.trim());
-  }
-
-  function handleFormSubmit(e) {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     if (value) {
       const newPost = {
         id: Date.now(),
         name: JSON.parse(window.localStorage.getItem("token")).login,
-        userName: `@${JSON.parse(window.localStorage.getItem("token")).login} · 21s`,
+        userName: `@${
+          JSON.parse(window.localStorage.getItem("token")).login
+        } · ${date.toLocaleTimeString()}`,
         desc: value,
         userImg: <img src={Avatar} alt="" />,
-        postImgUrl: knowImgChange ? <img src={showImgRef.current.src} alt="" /> : null,
+        postImgUrl: knowImgChange ? (
+          <img src={showImgRef.current.src} alt="" />
+        ) : null,
       };
-      addNewPost(newPost);
+      setUsersPost((prevPosts) => [newPost, ...prevPosts]);
       resetFormAndImg(e);
     }
-  }
+  };
 
-  function addNewPost(newPost) {
-    setUsersPost((prevPosts) => [newPost, ...prevPosts]);
-  }
+  const takeChoosenImg = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      showImgRef.current.src = reader.result;
+      setKnowImgChange(true);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
 
-  function resetFormAndImg(e) {
+  const disbaledBtn = (e) => {
+    setValue(e.target.value.trim());
+  };
+
+  const resetFormAndImg = (e) => {
     setValue("");
     setKnowImgChange(false);
     e.target.reset();
-  }
+  };
 
   return (
     <div className="w-full flex">
@@ -74,10 +80,9 @@ function Home() {
               onChange={disbaledBtn}
               name="desc"
               required
-              className="resize-none w-full outline-none mt-3 leading-[29.26px] text-[22px] font-semibold placeholder:text-gray-10"
+              className="resize-none w-full h-fit outline-none mt-3 leading-[29.26px] text-[22px] font-semibold placeholder:text-gray-10"
               placeholder="What’s happening"
-              type="text"
-            />
+            ></input>
             <img
               className={`mt-5 ${knowImgChange ? "" : "hidden"}`}
               src=""
@@ -114,4 +119,3 @@ function Home() {
   );
 }
 export default Home;
-

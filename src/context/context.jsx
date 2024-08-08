@@ -57,9 +57,10 @@ export const TokenContext = ({ children }) => {
 
   window.localStorage.setItem("token", JSON.stringify(token));
 
-
   return (
-    <Context.Provider value={{ token, setToken, usersPost, setUsersPost }}>
+    <Context.Provider
+      value={{ token, setToken, usersPost, setUsersPost }}
+    >
       {children}
     </Context.Provider>
   );
