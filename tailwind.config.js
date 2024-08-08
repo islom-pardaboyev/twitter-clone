@@ -6,8 +6,12 @@ export default {
       colors: {
         gray: {
           DEFAULT: "#D8D8D8",
-          10: '#828282'
+          10: '#828282',
+          20: "#EFF3F4"
         },
+        blue: {
+          DEFAULT: "#1DA1F2"
+        }
       },
     },
   },

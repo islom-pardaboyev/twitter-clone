@@ -16,12 +16,7 @@ function InfoAcc() {
             @{JSON.parse(window.localStorage.getItem("token")).login}
           </span>
         </div>
-        <Link to={'/'} onClick={() => {
-          window.localStorage. clear();
-          window.location.reload()
-        }} className="pr-[15px] p-3 rounded-full">
-          <MoreBtn />
-        </Link>
+        
       </div>
     </NavLink>
   );
