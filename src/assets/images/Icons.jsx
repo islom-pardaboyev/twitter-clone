@@ -1,8 +1,4 @@
 import React from "react";
-import UserImg1 from "../images/UserImg1.png";
-import UserImg2 from "../images/UserImg2.png";
-import UserImg3 from "../images/UserImg3.png";
-import PostImg from "../images/PostValueImg.svg";
 
 export function TwitterLogo() {
   return (
@@ -423,22 +419,6 @@ export function StatisticIcon() {
       </g>
     </svg>
   );
-}
-
-export function UserAvatar1() {
-  return <img src={UserImg1} alt="user img 1" />;
-}
-
-export function UserAvatar2() {
-  return <img src={UserImg2} alt="user img 2" />;
-}
-
-export function UserAvatar3() {
-  return <img src={UserImg3} alt="user img 3" />;
-}
-
-export function PostValueImg() {
-  return <img width={679} height={453} src={PostImg} alt="" />;
 }
 
 export function SearchIcon() {

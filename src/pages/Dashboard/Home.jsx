@@ -30,10 +30,8 @@ function Home() {
           JSON.parse(window.localStorage.getItem("token")).login
         } · ${date.toLocaleTimeString()}`,
         desc: value,
-        userImg: <img src={Avatar} alt="" />,
-        postImgUrl: knowImgChange ? (
-          <img src={showImgRef.current.src} alt="" />
-        ) : null,
+        userImg: Avatar,
+        postImgUrl: knowImgChange ? showImgRef.current.src : null,
         commentCount: null,
         replyCount: null,
         likeCount: null,

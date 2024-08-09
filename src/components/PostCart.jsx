@@ -69,7 +69,7 @@ const PostCart = ({ item }) => {
 
   return (
     <div className="flex relative items-start border-b border-gray space-x-[15px] px-[25px] pt-[10px] pb-[21px]">
-      {item.userImg}
+      <img src={item.userImg} alt="" />
       <div className="flex w-full flex-col">
         <div className="flex space-x-[5px]">
           <strong>{item.name}</strong>
@@ -80,7 +80,7 @@ const PostCart = ({ item }) => {
         <p className="font-normal w-full leading-[23.94px] text-[16px] mt-[5px]">
           {item.desc}
         </p>
-        <div className="mt-[15px] mx-auto">{item.postImgUrl}</div>
+        <img className="mt-[15px] mx-auto" src={item.postImgUrl} alt="" />
         <div className="mt-[22px] mb-[21px] flex items-center justify-between">
           <button
             onClick={() => changeCommentCount(item)}
