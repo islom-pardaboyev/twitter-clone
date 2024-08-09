@@ -30,4 +30,5 @@ nav ul li a.active > svg {
   border-top-left-radius: 3px;
   padding-bottom: 15px;
   z-index: 50;
+  font-weight: 700;
 }

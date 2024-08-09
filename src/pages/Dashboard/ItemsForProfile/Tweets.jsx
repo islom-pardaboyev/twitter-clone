@@ -6,10 +6,10 @@ function Tweets() {
   const usersPost = JSON.parse(window.localStorage.getItem("usersPost"));
   return (
     <div>
-      {usersPost.length ? (
+      {usersPost.filter((item) => item.name == token.login).length ? (
         usersPost.filter((item) => item.name == token.login).map(item => <PostCart item={item} key={item.id}/>)
       ) : (
-        <p className="capitalize text-red-600">not yet own tweets</p>
+        <p className="capitalize font-bold text-2xl flex items-center justify-center mt-8">not yet own tweets</p>
       )}
     </div>
   );

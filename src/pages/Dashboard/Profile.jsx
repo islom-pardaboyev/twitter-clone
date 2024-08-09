@@ -93,17 +93,24 @@ function Home() {
               </p>
             </div>
           </div>
-          <ul id="links" className="flex items-center border-sky-500 justify-between px-[50px] mt-[40px] text-[18px] leading-[23.94px]">
+          <ul
+            id="links"
+            className="flex pb-[15px] border-b border-neutral-300 items-center justify-between px-[50px] mt-[40px] text-[18px] leading-[23.94px]"
+          >
             <li>
               <NavLink to="tweets">Tweets</NavLink>
             </li>
             <li>
               <NavLink to="tweets-replies">Tweets & replies</NavLink>
             </li>
-            <li><NavLink to="media">Media</NavLink></li>
-            <li><NavLink to="likes">Likes</NavLink></li>
+            <li>
+              <NavLink to="media">Media</NavLink>
+            </li>
+            <li>
+              <NavLink to="likes">Likes</NavLink>
+            </li>
           </ul>
-          <hr className="mt-[15px]" />
+
           <Outlet />
         </div>
       </div>
