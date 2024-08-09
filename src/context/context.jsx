@@ -17,7 +17,7 @@ export const TokenContext = ({ children }) => {
     {
       id: 1,
       name: "Designsta",
-      userName: "@inner · 25m",
+      userName: `@inner · 25m ${new Date().toLocaleTimeString()}`,
       desc: "Twitterdagi ayol-erkak qarama-qarshiliginglardan o'zinglar zerikmadinglarmi?",
       userImg: <UserAvatar1 />,
       postImgUrl: null,
@@ -25,12 +25,12 @@ export const TokenContext = ({ children }) => {
       replyCount: "1",
       likeCount: "8",
       shareCount: null,
-      statusticCount: null,
+      statisticCount: null,
     },
     {
       id: 2,
       name: "cloutexhibition",
-      userName: "@RajLahoti · 22m",
+      userName: `@RajLahoti · ${new Date().toLocaleTimeString()}`,
       desc: "YPIP dasturining bu yilgi sezoni ham o’z nihoyasiga yetmoqda. Mentorlik davomida talaba va yangi bitiruvchilarni o’sayotganini ko’rib hursand bo’ladi odam.",
       userImg: <UserAvatar2 />,
       postImgUrl: null,
@@ -38,12 +38,12 @@ export const TokenContext = ({ children }) => {
       replyCount: "5",
       likeCount: "9",
       shareCount: null,
-      statusticCount: null,
+      statisticCount: null,
     },
     {
       id: 3,
       name: "CreativePhoto",
-      userName: "@cloutexhibition · 1h",
+      userName: `@cloutexhibition · ${new Date().toLocaleTimeString()}`,
       desc: "Обетда..... Кечиринглар",
       userImg: <UserAvatar3 />,
       postImgUrl: <PostValueImg />,
@@ -51,17 +51,21 @@ export const TokenContext = ({ children }) => {
       replyCount: "1",
       likeCount: "8",
       shareCount: null,
-      statusticCount: null,
+      statisticCount: null,
     },
   ]);
 
+  const [isOpenModal, setIsOpenModal] = useState(false)
+
   window.localStorage.setItem("token", JSON.stringify(token));
+  
 
   return (
     <Context.Provider
-      value={{ token, setToken, usersPost, setUsersPost }}
+      value={{ token, setToken, usersPost, setUsersPost, isOpenModal, setIsOpenModal}}
     >
       {children}
     </Context.Provider>
   );
 };
+

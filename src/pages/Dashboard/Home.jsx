@@ -34,6 +34,11 @@ function Home() {
         postImgUrl: knowImgChange ? (
           <img src={showImgRef.current.src} alt="" />
         ) : null,
+        commentCount: null,
+        replyCount: null,
+        likeCount: null,
+        shareCount: null,
+        statusticCount: null,
       };
       setUsersPost((prevPosts) => [newPost, ...prevPosts]);
       resetFormAndImg(e);

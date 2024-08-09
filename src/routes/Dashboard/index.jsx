@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import {
   Bookmarks,
@@ -12,7 +12,10 @@ import {
 } from "../../pages/Dashboard";
 import Navbar from "../../components/Navbar";
 
+import { Context } from "../../context/context";
+
 function DashboardPage() {
+  const { isOpenModal, setIsOpenModal } = useContext(Context);
   return (
     <div className="flex w-full h-screen overflow-hidden">
       <Navbar />

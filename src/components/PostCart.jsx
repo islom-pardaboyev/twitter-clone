@@ -16,6 +16,57 @@ const PostCart = ({ item }) => {
     setUsersPost(usersPost.filter((post) => post.id !== item.id));
   };
 
+  function changeCommentCount(value) {
+    value.isCommit = !value.isCommit;
+    value.commentCount = value.isCommit
+      ? ++value.commentCount
+      : --value.commentCount;
+    if (value.commentCount == 0) {
+      value.commentCount = null;
+    }
+
+    setUsersPost([...usersPost]);
+  }
+
+  function changeReplyCount(value) {
+    value.isReply = !value.isReply;
+    value.replyCount = value.isReply ? ++value.replyCount : --value.replyCount;
+    if (value.replyCount == 0) {
+      value.replyCount = null;
+    }
+
+    setUsersPost([...usersPost]);
+  }
+
+  function changeLikeCount(value) {
+    value.isLike = !value.isLike;
+    value.likeCount = value.isLike ? ++value.likeCount : --value.likeCount;
+    if (value.likeCount == 0) {
+      value.likeCount = null;
+    }
+    setUsersPost([...usersPost]);
+  }
+
+  function changeShareCount(value) {
+    value.isShare = !value.isShare;
+    value.shareCount = value.isShare ? ++value.shareCount : --value.shareCount;
+    if (value.shareCount == 0) {
+      value.shareCount = null;
+    }
+    setUsersPost([...usersPost]);
+  }
+
+  function changeStatisticCount(value) {
+    value.isStatistic = !value.isStatistic;
+    value.statisticCount = value.isStatistic
+      ? (value.statisticCount = value.statisticCount + 1 || 1)
+      : (value.statisticCount = value.statisticCount - 1 || 0);
+    if (value.statisticCount == 0) {
+      value.statisticCount = null;
+    }
+    setUsersPost([...usersPost]);
+  }
+
   return (
     <div className="flex relative items-start border-b border-gray space-x-[15px] px-[25px] pt-[10px] pb-[21px]">
       {item.userImg}
@@ -31,25 +82,50 @@ const PostCart = ({ item }) => {
         </p>
         <div className="mt-[15px] mx-auto">{item.postImgUrl}</div>
         <div className="mt-[22px] mb-[21px] flex items-center justify-between">
-          <button className="flex items-center space-x-[10px]">
+          <button
+            onClick={() => changeCommentCount(item)}
+            className={`flex items-center space-x-[10px] font-bold ${
+              item.isCommit ? "text-sky-500" : ""
+            }`}
+          >
             <CommentIcon />
             <span>{item.commentCount}</span>
           </button>
-          <button className="flex items-center space-x-[10px]">
+          <button
+            onClick={() => changeReplyCount(item)}
+            className={`flex items-center space-x-[10px] font-bold ${
+              item.isReply ? "text-green-500" : ""
+            }`}
+          >
             <ReplyIcon />
             <span>{item.replyCount}</span>
           </button>
-          <button className="flex items-center space-x-[10px]">
+          <button
+            onClick={() => changeLikeCount(item)}
+            className={`flex items-center space-x-[10px] font-bold ${
+              item.isLike ? "text-red-600" : ""
+            }`}
+          >
             <LikeIcon />
             <span>{item.likeCount}</span>
           </button>
-          <button className="flex items-center space-x-[10px]">
+          <button
+            onClick={() => changeShareCount(item)}
+            className={`flex items-center space-x-[10px] font-bold ${
+              item.isShare ? "text-pink-500" : ""
+            }`}
+          >
             <ShareIcon />
             <span>{item.shareCount}</span>
           </button>
-          <button className="flex items-center space-x-[10px]">
+          <button
+            onClick={() => changeStatisticCount(item)}
+            className={`flex items-center space-x-[10px] font-bold ${
+              item.isStatistic ? "text-orange-500" : ""
+            }`}
+          >
             <StatisticIcon />
-            <span>{item.statuscticCount}</span>
+            <span>{item.statisticCount}</span>
           </button>
         </div>
       </div>
@@ -71,3 +147,4 @@ const PostCart = ({ item }) => {
 };
 
 export default PostCart;
+

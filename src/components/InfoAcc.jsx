@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Avatar from "../assets/images/avatar.svg";
-import { MoreBtn } from "../assets/images/Icons";
-import { Link, NavLink } from "react-router-dom";
+import { Context } from "../context/context";
 
 function InfoAcc() {
+  const {setIsOpenModal} = useContext(Context);
   return (
-    <NavLink to={'/profile'} className="w-full cursor-pointer hover:bg-gray-300 p-2 rounded-md duration-300 flex items-center space-x-[10px] absolute bottom-[47px]">
+    <div onClick={() => setIsOpenModal(true)} className="w-full cursor-pointer hover:bg-gray-300 p-2 z-30 rounded-md duration-300 flex items-center space-x-[10px] absolute bottom-[47px]">
       <img src={Avatar} alt="avatar" />
       <div className="flex w-full items-center justify-between">
         <div className="flex flex-col">
@@ -16,9 +16,9 @@ function InfoAcc() {
             @{JSON.parse(window.localStorage.getItem("token")).login}
           </span>
         </div>
-        
       </div>
-    </NavLink>
+      
+    </div>
   );
 }
 
