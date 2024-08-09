@@ -11,7 +11,7 @@ library.add(fas);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <TokenContext>
-      <main className="container mx-auto">
+      <main className="max-w-[1350px] mx-auto">
         <App />
       </main>
     </TokenContext>

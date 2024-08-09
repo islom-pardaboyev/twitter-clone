@@ -22,3 +22,12 @@ nav ul li a.active > svg {
 ::-webkit-scrollbar {
   display: none;
 }
+
+#links li a.active{
+  transition: all .3s ease;
+  border-bottom: 4px solid red;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  padding-bottom: 15px;
+  z-index: 50;
+}
