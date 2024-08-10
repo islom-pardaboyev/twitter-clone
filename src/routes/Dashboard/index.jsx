@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useContext } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { Context } from "../../context/context";
 import {
@@ -14,6 +14,7 @@ import LaodingVideo from "../../assets/images/loading.mp4";
 
 function DashboardPage() {
   const { isOpenModal, setIsOpenModal } = useContext(Context);
+  const navigate = useNavigate();
 
   // loading Page
   const Home = lazy(
@@ -92,7 +93,7 @@ function DashboardPage() {
   function cancelFn() {
     console.log("hello");
     window.localStorage.clear();
-    window.location.pathname = "/";
+    navigate('/')
     window.location.reload();
   }
   return (
@@ -229,7 +230,11 @@ function DashboardPage() {
               extraStyle={"bg-red-600"}
               title={"Ha, Chiqmoqchiman"}
             />
-            <Button onClick={() => setIsOpenModal(false)} extraStyle={"bg-green-600"} title={"Yo'q, Qolaman"} />
+            <Button
+              onClick={() => setIsOpenModal(false)}
+              extraStyle={"bg-green-600"}
+              title={"Yo'q, Qolaman"}
+            />
           </div>
         </CustomModal>
       </div>
