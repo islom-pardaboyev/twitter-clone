@@ -6,11 +6,18 @@ Ushbu loyiha Twitter'ning asosiy funksiyalarini taqlid qiluvchi bir ilova. Foyda
 
 ## Qanday O'zgarishlar bor ⭐️
 
+Login: islom
+Parol: 123
+
 1. Yana qo'shimcha dizayn qilindi.
 2. Siz inputga ma'lumot kiritsangiz u post ko'rinishida ekranga chiqadi.
 3. Unga yana inputni tagidagi rasm icon`kasini ustiga bosib rasmni tanlab rasm bilan birgalikda post qo'yishingiz mumkin!
 4. Barcha postlarni o'chirish imkoni bor, uning uchun Barcha postlarni o'ng tomonidagi uchta nuqtaga sichqonchani olib kelganda sizga menu ko'rinadi va o'sha menudan deletemo bosib postlarni o'chirishingiz mumkin!
-5. Va Hokazo...
+5. Loading Qo'shildi
+6. Profile Pagega otganda Tweets bo'limini ustiga bossangiz faqat siz kiritgan postlar korinadi
+7. Tweets&Reply bo'limiga kirganingizda kirganingizda faqat siz yaratgan postlarni Reply bo'lganlarni qaytaradi siz uning uchun postlardagi reply iconcasini ustiga bossangiz kifoya.
+8. Navbardagi Accountni oldidagi uchta nuqtani bosgangiz ekranga modal chiqib keladi va siz syatdan chiqish yoki qolishni tanlaysiz
+9. VA hokazo...
 
 ## O'rnatish
 
