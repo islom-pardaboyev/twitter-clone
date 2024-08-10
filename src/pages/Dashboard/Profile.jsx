@@ -11,6 +11,7 @@ import {
 } from "../../assets/images/Icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
+import TrendsForYou from "../../components/TrendsForYou";
 
 function Home() {
   const navigate = useNavigate();
@@ -114,7 +115,7 @@ function Home() {
           <Outlet />
         </div>
       </div>
-      <div className="h-screen overflow-y-auto">another trend for you</div>
+      <TrendsForYou/>
     </div>
   );
 }
