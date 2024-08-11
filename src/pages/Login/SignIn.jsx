@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import { TwitterLogo } from "../../assets/images/Icons";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input";
