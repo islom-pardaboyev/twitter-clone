@@ -25,7 +25,7 @@ nav ul li a.active > svg {
 
 #links li a.active{
   transition: all .3s ease;
-  border-bottom: 4px solid red;
+  border-bottom: 4px solid #0ea5e9;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
   padding-bottom: 15px;

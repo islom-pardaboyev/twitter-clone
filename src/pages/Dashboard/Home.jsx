@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   DarkLightModeBtn,
   GifIcon,
@@ -12,8 +12,19 @@ import Button from "../../components/Button";
 import PostCart from "../../components/PostCart";
 import TrendsForYou from "../../components/TrendsForYou";
 import { Context } from "../../context/context";
+import DarkMode from "../../components/DarkMode";
 
 function Home() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   const date = new Date();
   const [value, setValue] = useState("");
   const { usersPost, setUsersPost } = useContext(Context);
@@ -24,7 +35,7 @@ function Home() {
     e.preventDefault();
     if (value) {
       const newPost = {
-        id: Date.now(),
+        id: usersPost.length ? usersPost[usersPost.length - 1].id + 1 : 1,
         name: JSON.parse(window.localStorage.getItem("token")).login,
         userName: `@${
           JSON.parse(window.localStorage.getItem("token")).login
@@ -67,15 +78,15 @@ function Home() {
 
   return (
     <div className="w-full flex">
-      <div className="w-[70%] border-x border-gray">
-        <div className="p-5 flex items-center sticky top-0 z-20 bg-white justify-between border-b border-gray">
-          <p className="font-bold text-[24px] leading-[31.92px]">Home</p>
-          <DarkLightModeBtn />
+      <div className="w-[70%] border-x border-gray dark:border-neutral-500">
+        <div className="p-5 flex items-center sticky top-0 z-20 bg-white justify-between dark:bg-black duration-300 border-b border-gray dark:border-neutral-600">
+          <p className="font-bold text-[24px] leading-[31.92px] dark:text-white duration-300">Home</p>
+          <DarkMode/>
         </div>
         <form
           onSubmit={handleFormSubmit}
           autoComplete="off"
-          className="flex relative border-b border-b-gray mb-[20px] items-start gap-[15px] px-[22px]"
+          className="flex dark:bg-black duration-300 relative border-b border-b-gray dark:border-neutral-500 pb-[20px] items-start gap-[15px] px-[22px]"
         >
           <img src={Avatar} alt="User Avatar" />
           <div className="flex flex-col w-full">
@@ -83,7 +94,7 @@ function Home() {
               onChange={disbaledBtn}
               name="desc"
               required
-              className="resize-none w-full h-fit outline-none mt-3 leading-[29.26px] text-[22px] font-semibold placeholder:text-gray-10"
+              className="dark:text-white duration-300 bg-transparent w-full h-fit outline-none mt-3 leading-[29.26px] text-[22px] font-semibold placeholder:text-gray-10"
               placeholder="What’s happening"
             ></input>
             <img
@@ -106,7 +117,7 @@ function Home() {
           <Button
             extraStyle={`${
               value ? "" : "opacity-20"
-            } absolute bottom-0 right-0 !w-[108px]`}
+            } absolute bottom-0 right-0 !w-[108px] dark:bg-white dark:text-black`}
             title={"Tweet"}
             disabled={!value}
           />

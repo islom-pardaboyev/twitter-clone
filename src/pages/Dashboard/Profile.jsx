@@ -4,7 +4,6 @@ import Avatar from "../../assets/images/avatar.svg";
 import Button from "../../components/Button";
 import {
   LocationIcon,
-  ShareIcon,
   BalloonIcon,
   CalendarIcon,
   ShareLinkIcon,
@@ -19,14 +18,14 @@ function Home() {
   return (
     <div className="w-full flex">
       <div className="w-[70%] border-x border-gray">
-        <div className="p-5 flex sticky top-0 z-20 bg-white items-center space-x-[40px] border-b border-gray">
+        <div className="p-5 flex sticky top-0 z-20 dark:bg-black bg-white items-center space-x-[40px] border-b border-gray">
           <FontAwesomeIcon
             onClick={() => navigate(-1)}
-            className="cursor-pointer p-4 hover:bg-neutral-200 duration-300 rounded-full"
+            className="cursor-pointer p-4 dark:text-white dark:bg-transparent hover:bg-neutral-200 duration-300 rounded-full"
             icon="fa-solid fa-arrow-left"
           />
           <div className="flex flex-col gap-[2px]">
-            <strong className="leading-[26.6px] text-[20px] capitalize">
+            <strong className="leading-[26.6px] dark:text-white text-[20px] capitalize">
               {token.login}
             </strong>
             <p className="leading-[21.28px] text-[16px] text-neutral-500">
@@ -46,19 +45,19 @@ function Home() {
             />
             <Button
               extraStyle={
-                "!w-fit px-[15px] !py-[10px] !text-black bg-transparent border border-neutral-400"
+                "!w-fit dark:!text-white px-[15px] !py-[10px] !text-black bg-transparent border border-neutral-400 dark:text-white"
               }
               title={"Edit profile"}
             />
           </div>
           <div className="flex flex-col mt-[10px] px-[25px]">
-            <strong className="capitalize text-[24px] leading-[31.92px]">
+            <strong className="capitalize dark:text-white text-[24px] leading-[31.92px]">
               {token.login}
             </strong>
             <p className="text-neutral-400 text-[16px] leading-[21.28px]">
               @{token.login}
             </p>
-            <p className="mt-[15px] text-[18px] leading-[23.94px] ">
+            <p className="mt-[15px] text-[18px] dark:text-white leading-[23.94px] ">
               UX&UI designer at{" "}
               <a href="/" className="text-sky-400">
                 @abutechuz
@@ -96,9 +95,9 @@ function Home() {
           </div>
           <ul
             id="links"
-            className="flex pb-[15px] border-b border-neutral-300 items-center justify-between px-[50px] mt-[40px] text-[18px] leading-[23.94px]"
+            className="flex pb-[15px] dark:text-white border-b border-neutral-300 items-center justify-between px-[50px] mt-[40px] text-[18px] leading-[23.94px]"
           >
-            <li>
+            <li className="dark:border-sky-500">
               <NavLink to="tweets">Tweets</NavLink>
             </li>
             <li>
@@ -115,7 +114,7 @@ function Home() {
           <Outlet />
         </div>
       </div>
-      <TrendsForYou/>
+      <TrendsForYou />
     </div>
   );
 }

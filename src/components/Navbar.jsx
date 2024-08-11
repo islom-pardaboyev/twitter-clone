@@ -67,8 +67,8 @@ function Navbar() {
     },
   ];
   return (
-    <div className="h-screen relative mt-[31px] min-w-[20%] max-w-full overflow-y-auto">
-      <div className="mr-4">
+    <div className="h-screen dark:bg-black relative pt-[31px] min-w-[20%] max-w-full overflow-y-auto">
+      <div className="pr-4">
         <Link to={"/"}>
           <TwitterLogo />
         </Link>

@@ -2,7 +2,7 @@ import React from 'react'
 
 function Media() {
   return (
-    <div>Media</div>
+    <div className='dark:text-white'>Media</div>
   )
 }
 

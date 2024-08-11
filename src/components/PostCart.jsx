@@ -68,24 +68,24 @@ const PostCart = ({ item }) => {
   }
 
   return (
-    <div className="flex relative items-start border-b border-gray space-x-[15px] px-[25px] pt-[10px] pb-[21px]">
+    <div className="flex relative dark:bg-black items-start border-b border-gray space-x-[15px] px-[25px] pt-[10px] pb-[21px]">
       <img src={item.userImg} alt="" />
       <div className="flex w-full flex-col">
         <div className="flex space-x-[5px]">
-          <strong>{item.name}</strong>
-          <p className="text-black/40 font-normal leading-[23.94px] text-[16px]">
+          <strong className="dark:text-white">{item.name}</strong>
+          <p className="text-black/40 dark:text-white/40 font-normal leading-[23.94px] text-[16px]">
             {item.userName}
           </p>
         </div>
-        <p className="font-normal w-full leading-[23.94px] text-[16px] mt-[5px]">
+        <p className="font-normal dark:text-white w-full leading-[23.94px] text-[16px] mt-[5px]">
           {item.desc}
         </p>
         <img className="mt-[15px] mx-auto" src={item.postImgUrl} alt="" />
         <div className="mt-[22px] mb-[21px] flex items-center justify-between">
           <button
             onClick={() => changeCommentCount(item)}
-            className={`flex items-center space-x-[10px] font-bold ${
-              item.isCommit ? "text-sky-500" : ""
+            className={`flex items-center dark:text-white space-x-[10px] font-bold ${
+              item.isCommit ? "!text-sky-500" : ""
             }`}
           >
             <CommentIcon />
@@ -93,8 +93,8 @@ const PostCart = ({ item }) => {
           </button>
           <button
             onClick={() => changeReplyCount(item)}
-            className={`flex items-center space-x-[10px] font-bold ${
-              item.isReply ? "text-green-500" : ""
+            className={`flex items-center dark:text-white space-x-[10px] font-bold ${
+              item.isReply ? "!text-green-500" : ""
             }`}
           >
             <ReplyIcon />
@@ -102,8 +102,8 @@ const PostCart = ({ item }) => {
           </button>
           <button
             onClick={() => changeLikeCount(item)}
-            className={`flex items-center space-x-[10px] font-bold ${
-              item.isLike ? "text-red-600" : ""
+            className={`flex items-center dark:text-white space-x-[10px] font-bold ${
+              item.isLike ? "!text-red-600" : ""
             }`}
           >
             <LikeIcon />
@@ -111,8 +111,8 @@ const PostCart = ({ item }) => {
           </button>
           <button
             onClick={() => changeShareCount(item)}
-            className={`flex items-center space-x-[10px] font-bold ${
-              item.isShare ? "text-pink-500" : ""
+            className={`flex items-center dark:text-white space-x-[10px] font-bold ${
+              item.isShare ? "!text-pink-500" : ""
             }`}
           >
             <ShareIcon />
@@ -120,8 +120,8 @@ const PostCart = ({ item }) => {
           </button>
           <button
             onClick={() => changeStatisticCount(item)}
-            className={`flex items-center space-x-[10px] font-bold ${
-              item.isStatistic ? "text-orange-500" : ""
+            className={`flex items-center dark:text-white space-x-[10px] font-bold ${
+              item.isStatistic ? "!text-orange-500" : ""
             }`}
           >
             <StatisticIcon />

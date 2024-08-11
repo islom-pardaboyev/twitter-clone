@@ -5,7 +5,7 @@ function Tweets() {
   const token = JSON.parse(window.localStorage.getItem("token"));
   const usersPost = JSON.parse(window.localStorage.getItem("usersPost"));
   return (
-    <div>
+    <div className="dark:text-white">
       {usersPost.filter((item) => item.name == token.login).length ? (
         usersPost.filter((item) => item.name == token.login).map(item => <PostCart item={item} key={item.id}/>)
       ) : (

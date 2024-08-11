@@ -1,4 +1,4 @@
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { Context } from "../../context/context";
@@ -8,7 +8,16 @@ import {
   Tweets,
   TweetsReplies,
 } from "../../pages/Dashboard/ItemsForProfile";
-import {Bookmarks, Explore, Home, Lists, Messages, More, Notifications, Profile} from '../../pages/Dashboard'
+import {
+  Bookmarks,
+  Explore,
+  Home,
+  Lists,
+  Messages,
+  More,
+  Notifications,
+  Profile,
+} from "../../pages/Dashboard";
 import CustomModal from "../../components/CustomModal";
 import Button from "../../components/Button";
 
@@ -23,7 +32,7 @@ function DashboardPage() {
     window.location.reload();
   }
   return (
-    <div className="flex w-full h-screen overflow-hidden">
+    <div className="flex w-full  h-screen overflow-hidden">
       <Navbar />
       <div className="h-screen w-full overflow-y-auto">
         <Routes>
@@ -34,7 +43,7 @@ function DashboardPage() {
           <Route path="/bookmarks" element={<Bookmarks />} />
           <Route path="/lists" element={<Lists />} />
           <Route path="/profile" element={<Profile />}>
-            <Route path="tweets" index element={<Tweets />} />
+            <Route path="tweets" element={<Tweets />} />
 
             <Route path="tweets-replies" element={<TweetsReplies />} />
             <Route path="media" element={<Media />} />
