@@ -4,10 +4,10 @@
 
 Ushbu loyiha Twitter'ning asosiy funksiyalarini taqlid qiluvchi bir ilova. Foydalanuvchilar yangi postlar yaratishi, rasm qo'shishi va mavjud postlarni ko'rishi mumkin (ish olib borilmoqda...).
 
-## Qanday O'zgarishlar bor ⭐️
+## Login: islom
+## Parol: 123
 
-Login: islom
-Parol: 123
+## Qanday O'zgarishlar bor ⭐️
 
 1. Yana qo'shimcha dizayn qilindi.
 2. Siz inputga ma'lumot kiritsangiz u post ko'rinishida ekranga chiqadi.
