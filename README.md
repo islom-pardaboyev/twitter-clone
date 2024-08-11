@@ -18,6 +18,7 @@ Ushbu loyiha Twitter'ning asosiy funksiyalarini taqlid qiluvchi bir ilova. Foyda
 7. Tweets&Reply bo'limiga kirganingizda kirganingizda faqat siz yaratgan postlarni Reply bo'lganlarni qaytaradi siz uning uchun postlardagi reply iconcasini ustiga bossangiz kifoya.
 8. Navbardagi Accountni oldidagi uchta nuqtani bosgangiz ekranga modal chiqib keladi va siz syatdan chiqish yoki qolishni tanlaysiz
 9. Profile gapegi o'tganda tepada left icon bor, uni bossangiz oldingi pagega o'tasiz
+11. Dark Mode Qo'shildi
 10. Va hokazo...
 
 ## O'rnatish
